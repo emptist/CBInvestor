@@ -13,6 +13,7 @@
 		48A1AFE926DDC2AF00755CB0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A1AFD426DDC2AD00755CB0 /* ContentView.swift */; };
 		48A1AFEA26DDC2AF00755CB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A1AFD526DDC2AF00755CB0 /* Assets.xcassets */; };
 		48A1AFEB26DDC2AF00755CB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A1AFD526DDC2AF00755CB0 /* Assets.xcassets */; };
+		48A1AFF626DDC31700755CB0 /* JslDataTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A1AFF526DDC31700755CB0 /* JslDataTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		48A1AFE226DDC2AF00755CB0 /* CBInvestor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBInvestor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A1AFE426DDC2AF00755CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48A1AFE526DDC2AF00755CB0 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		48A1AFF526DDC31700755CB0 /* JslDataTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JslDataTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 		48A1AFD226DDC2AD00755CB0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				48A1AFF426DDC2E300755CB0 /* Model */,
 				48A1AFD326DDC2AD00755CB0 /* CBInvestorApp.swift */,
 				48A1AFD426DDC2AD00755CB0 /* ContentView.swift */,
 				48A1AFD526DDC2AF00755CB0 /* Assets.xcassets */,
@@ -88,6 +91,14 @@
 				48A1AFE526DDC2AF00755CB0 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		48A1AFF426DDC2E300755CB0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48A1AFF526DDC31700755CB0 /* JslDataTable.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48A1AFF626DDC31700755CB0 /* JslDataTable.swift in Sources */,
 				48A1AFE826DDC2AF00755CB0 /* ContentView.swift in Sources */,
 				48A1AFE626DDC2AF00755CB0 /* CBInvestorApp.swift in Sources */,
 			);

@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum ResultState {
+    case loading
+    case success(content: [Row])
+    case failed(error: Error)
+}

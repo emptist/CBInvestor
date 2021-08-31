@@ -1,19 +1,19 @@
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let dataTable = try? newJSONDecoder().decode(DataTable.self, from: jsonData)
+//   let dataTable = try? newJSONDecoder().decode(DataResponse.self, from: jsonData)
 
 import Foundation
 
-// MARK: - DataTable
-struct DataTable: Codable {
+// MARK: - DataResponse
+struct DataResponse: Codable {
     let page: Int
     let rows: [Row]
     let total: Int
 }
 
 // MARK: - Row
-struct Row: Codable {
+struct Row: Codable, Identifiable {
     let id: String
     let cell: Cell
 }

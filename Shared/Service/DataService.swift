@@ -10,25 +10,30 @@ import Combine
 
 
 protocol DataService {
-    func request(from endPoint: TableAPI) -> AnyPublisher<DataResponse, APIError>
+    func request(from endpoint: DataAPI) -> AnyPublisher<DataResponse, APIError>
 }
 
 struct JslDataService: DataService {
-    func request(from endPoint: TableAPI) -> AnyPublisher<DataResponse, APIError> {
+    func request(from endpoint: DataAPI) -> AnyPublisher<DataResponse, APIError> {
         return URLSession
             .shared
-            .dataTaskPublisher(for: endPoint.urlRequest)
+            .dataTaskPublisher(for: endpoint.urlRequest)
             .receive(on: DispatchQueue.main)
             .mapError {_ in APIError.unknown}
             .flatMap {data, response -> AnyPublisher<DataResponse, APIError> in
                 guard let response = response as? HTTPURLResponse else {
-                    return Fail(error: APIError.unknown)
+                    return Fail(error: APIError.unknown).eraseToAnyPublisher()
                 }
                 
                 if (200...299).contains(response.statusCode) {
-                    
+                    let jsonDecoder = JSONDecoder()
+                    jsonDecoder.dateDecodingStrategy = .iso8601
+                    return Just(data)
+                        .decode(type: DataResponse.self, decoder: jsonDecoder)
+                        .mapError({_ in APIError.decodingError})
+                        .eraseToAnyPublisher()
                 } else {
-                    return Fail(error: APIError.errorCode(response.statusCodee))
+                    return Fail(error: APIError.errorCode(response.statusCode)).eraseToAnyPublisher()
                 }
             }
             .eraseToAnyPublisher()

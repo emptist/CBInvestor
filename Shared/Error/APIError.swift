@@ -22,8 +22,8 @@ extension APIError: LocalizedError {
             return "\(code) - Something went wrong"
         case .unknown:
             return "The error is unknown"
-        default:
-            return "Error"
+//        default:
+//            return "Error"
         }
     }
 }

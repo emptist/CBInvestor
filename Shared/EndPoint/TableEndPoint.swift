@@ -15,17 +15,15 @@ protocol APIBuilder {
 }
 
 
-enum TableAPI {
+enum DataAPI {
     case getItems
 }
 
-extension TableAPI: APIBuilder {
+extension DataAPI: APIBuilder {
     var baseUrl: URL {
         switch self {
         case .getItems:
-            return URL(string: "https://www.jisilu.cn")
-        default:
-            return URL(string: "https://www.jisilu.cn")
+            return URL(string: "https://www.jisilu.cn")!
         }
     }
     
@@ -33,12 +31,10 @@ extension TableAPI: APIBuilder {
         switch self {
         case .getItems:
             return "/data/cbnew/cb_list/"
-        default:
-            return "/data/cbnew/cb_list/"
         }
     }
     
     var urlRequest: URLRequest {
-        URLRequest(url: self.baseUrl.appendingPathComponent(self.path)
+        URLRequest(url: self.baseUrl.appendingPathComponent(self.path))
     }
 }

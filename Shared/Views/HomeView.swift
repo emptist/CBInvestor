@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(\.openURL) var openUrl
     @StateObject var dataFromSite: DataFromSite = DataFromSite(service: JslDataService())
     var body: some View {
         Group {
@@ -20,14 +21,23 @@ struct HomeView: View {
                 NavigationView {
                     List(rows) { row in
                         RowView(row: row)
+                            .onTapGesture {
+                                load(url: "https://www.jisilu.cn/data/cbnew/cb_list/")
+                            }
                     }
                     .navigationTitle(Text("Rows"))
                 }
                 
             }
         }.onAppear(perform: dataFromSite.getDataRows)
-//        RowView(row:Row.dummyData)
-//            .padding()
+    }
+    
+    func load(url: String?) {
+        guard let link = url,
+              let url = URL(string: link)
+        else { return }
+ 
+        openUrl(url)
     }
 }
 

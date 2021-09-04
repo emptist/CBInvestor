@@ -12,6 +12,7 @@ protocol APIBuilder {
     var urlRequest: URLRequest {get}
     var baseUrl: URL {get}
     var path: String {get}
+    var fullUrl: URL {get}
 }
 
 
@@ -35,6 +36,10 @@ extension DataAPI: APIBuilder {
     }
     
     var urlRequest: URLRequest {
-        URLRequest(url: self.baseUrl.appendingPathComponent(self.path))
+        URLRequest(url: fullUrl)
+    }
+    
+    var fullUrl: URL {
+        self.baseUrl.appendingPathComponent(self.path)
     }
 }

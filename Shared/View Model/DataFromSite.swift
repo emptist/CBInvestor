@@ -13,7 +13,8 @@ protocol DataViewModel {
 }
 
 class DataFromSite: ObservableObject, DataViewModel {
-    private let service: DataService
+    //private
+    let service: DataService
     private(set) var rows = Array<Row>()
     @Published private(set) var state: ResultState = .loading
     private var cancellables = Set<AnyCancellable>()

@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct ErrorView: View {
+    let error: Error
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image(systemName: "exclamationmark.icloud.fill")
+            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+            .font(.system(size: 50,weight: .heavy))
     }
 }
 
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorView()
+        ErrorView(error: APIError.decodingError)
     }
 }

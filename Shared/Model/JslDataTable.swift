@@ -71,7 +71,7 @@ struct Cell: Codable {
     let sincreaseRt: String //Percentage
     let qstatus: String
     let bondValue, bondValue2, volatilityRate: BondValue
-    let lastTime: Date?
+    let lastTime: String? //Date?
     let convertValue: Double
     let premiumRt: String //Percentage
     let yearLeft: Double
@@ -337,7 +337,8 @@ extension Cell  {
               totalShares: 256771546.0, floatShares: 256771546.0, sqflg: .y, sprice: 31.33,
               svolume: 125349.42,sincreaseRt: "-4.28%", qstatus: "00",
               bondValue: .buy, bondValue2: .buy, volatilityRate: .buy,
-              lastTime: "15:14:03".toDate(withFormat: "hh:mm:ss"), convertValue: 338.70, premiumRt: "-10.39%",
+              lastTime: "15:14:03"/*.toDate(withFormat: "hh:mm:ss")*/,
+              convertValue: 338.70, premiumRt: "-10.39%",
               yearLeft: 5.521, ytmRt: "-14.87%", ytmRtTax: "-15.50%", price: 303.500, fullPrice: 303.500,
               increaseRt: "-5.45%", volume: 439276.88, convertPriceValid: .y,
               adjScnt: .integer(0), adjCnt: 0, redeemIcon: .empty, refYieldInfo: "-", adjustTip: "", adjusted: .n, optionTip: "-", bondValue3: .buy,

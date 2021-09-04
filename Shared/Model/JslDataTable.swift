@@ -8,6 +8,7 @@ import Foundation
 
 // MARK: - DataResponse
 struct DataResponse: Codable {
+    static let urlString: String = "https://www.jisilu.cn/data/cbnew/cb_list/"
     let page: Int
     let rows: [Row]
     var total: Int { rows.count }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ErrorView: View {
-    
+    @Environment(\.openURL) var openUrl
     typealias ErrorViewActionHandler = () -> Void
     
     let error: Error
@@ -34,6 +34,7 @@ struct ErrorView: View {
                 .padding(.vertical,4)
             Button(action: {
                 // some action here
+                openUrl(URL(string: DataResponse.urlString)!)
                 handler()
             }, label: {
                 Text("Retry")

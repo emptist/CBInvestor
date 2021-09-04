@@ -36,7 +36,7 @@ extension DataAPI: APIBuilder {
     }
     
     var urlRequest: URLRequest {
-        URLRequest(url: fullUrl)
+        URLRequest(url: self.fullUrl)
     }
     
     var fullUrl: URL {

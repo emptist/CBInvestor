@@ -22,7 +22,7 @@ struct HomeView: View {
                     List(rows) { row in
                         RowView(row: row)
                             .onTapGesture {
-                                load(url: "https://www.jisilu.cn/data/cbnew/cb_list/")
+                                load(url: DataResponse.urlString)
                             }
                     }
                     .navigationTitle(Text("Rows"))

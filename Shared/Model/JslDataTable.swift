@@ -5,11 +5,12 @@
 
 import Foundation
 
+
 // MARK: - DataResponse
 struct DataResponse: Codable {
     let page: Int
     let rows: [Row]
-    let total: Int
+    var total: Int { rows.count }
 }
 
 // MARK: - Row
@@ -18,60 +19,83 @@ struct Row: Codable, Identifiable {
     let cell: Cell
 }
 
+extension Row {
+    static var dummyData: Row {
+        .init(id: "123102", cell: Cell.dummyData)
+    }
+}
 // MARK: - Cell
 struct Cell: Codable {
     let bondID, bondNm, stockID, stockNm: String
     let btype: Btype
-    let convertPrice: String
-    let convertPriceValidFrom: String?
-    let convertDt, maturityDt: String
-    let nextPutDt: String?
-    let putDt, putNotes: JSONNull?
-    let putPrice: String?
+    let convertPrice: Double
+    let convertPriceValidFrom: Date?
+    let convertDt, maturityDt: Date
+    let nextPutDt: Date?
+    let putDt: Date?
+    let putNotes: String? //JSONNull?
+    let putPrice: Double?
     let putIncCpnFL: IncCpnFL
-    let putConvertPriceRatio: String?
+    let putConvertPriceRatio: Double?
     let putCountDays, putTotalDays, putRealDays: Int
-    let repoDiscountRt: String
-    let repoValidFrom, repoValidTo, turnoverRt: String?
-    let redeemPrice: String
+    let repoDiscountRt: String //Percentage //Double
+    let repoValidFrom, repoValidTo: String?
+    let turnoverRt: String? //Percentage? //Double?
+    let redeemPrice: Double
     let redeemIncCpnFL: IncCpnFL
-    let redeemPriceRatio: String
+    let redeemPriceRatio: Double
     let redeemCountDays, redeemTotalDays, redeemRealDays: Int
-    let redeemDt: String?
+    let redeemDt: Date?
     let redeemFlag: Adjusted
-    let origIssAmt, currIssAmt: String
+    let origIssAmt, currIssAmt: Double
     let ratingCD, issuerRatingCD: RatingCD
-    let guarantor, sscDt: String?
-    let escDt: JSONNull?
+    let guarantor: String?
+    let sscDt: Date?
+    let escDt: Date?
     let scNotes: String?
     let marketCD: MarketCD
-    let forceRedeem, realForceRedeemPrice: String?
+    let forceRedeem: String?
+    let realForceRedeemPrice: Double?
     let convertCD, repoCD: String
-    let ration, rationCD, applyCD, onlineOfflineRatio: String?
+    let ration: Double?
+    let rationCD, applyCD, onlineOfflineRatio: String?
     let qflag, qflag2: Qflag
-    let rationRt: String?
-    let fundRt: BondValue
+    let rationRt: String? //Percentage? //Double?
+    let fundRt: BondValue // maybe Percentage
     let marginFlg: MarginFlg
-    let ltBps, pb: String
+    let ltBps: String, pb: Double
     let pbFlag: Adjusted
-    let totalShares, floatShares: String
+    let totalShares, floatShares: Double
     let sqflg: Adjusted
-    let sprice, svolume, sincreaseRt, qstatus: String
+    let sprice, svolume: Double
+    let sincreaseRt: String //Percentage
+    let qstatus: String
     let bondValue, bondValue2, volatilityRate: BondValue
-    let lastTime: String?
-    let convertValue, premiumRt, yearLeft, ytmRt: String
-    let ytmRtTax, price, fullPrice, increaseRt: String
-    let volume: String
+    let lastTime: Date?
+    let convertValue: Double
+    let premiumRt: String //Percentage
+    let yearLeft: Double
+    let ytmRt: String
+    let ytmRtTax: String //Percentage //is like "-5.3%"
+    let price, fullPrice: Double
+    let increaseRt: String //Percentage
+    let volume: Double
     let convertPriceValid: Adjusted
     let adjScnt: AdjScnt
     let adjCnt: Int
     let redeemIcon: MarginFlg
-    let refYieldInfo: BondValue
+    let refYieldInfo: String
     let adjustTip: String
     let adjusted: Adjusted
-    let optionTip, bondValue3, leftPutYear: BondValue
-    let shortMaturityDt, dblow, forceRedeemPrice, putConvertPrice: String
-    let convertAmtRatio, convertAmtRatio2, convertAmtRatioTips, stockNetValue: String
+    let optionTip: String
+    let bondValue3: BondValue
+    let leftPutYear: String
+    let shortMaturityDt: Date
+    let dblow: Double
+    let forceRedeemPrice, putConvertPrice: Double
+    let convertAmtRatio, convertAmtRatio2: String //Percentage
+    let convertAmtRatioTips: String
+    let stockNetValue: Double
     let stockCD, preBondID, repoValid, convertCDTip: String
     let priceTips: String
     
@@ -173,6 +197,7 @@ struct Cell: Codable {
         case priceTips = "price_tips"
     }
 }
+
 
 enum AdjScnt: Codable {
     case integer(Int)
@@ -285,5 +310,44 @@ class JSONNull: Codable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encodeNil()
+    }
+}
+
+
+extension Cell  {
+    /*
+     {
+     }
+     */
+    static var dummyData: Cell {
+        .init(bondID: "123102", bondNm: "华自转债", stockID: "sz300490", stockNm: "华自科技", btype: .c,convertPrice: 9.25,
+              convertPriceValidFrom: "2021-07-26".toDate(withFormat: "yyyy-mm-dd"),
+              convertDt: "2021-09-20".toDate(withFormat: "yyyy-mm-dd"),
+              maturityDt: "2025-03-11".toDate(withFormat: "yyyy-mm-dd"),
+              nextPutDt: "2025-03-11".toDate(withFormat: "yyyy-mm-dd"),
+              putDt: nil,
+              putNotes: nil,
+              putPrice: 100.000,
+              putIncCpnFL: .y,
+              putConvertPriceRatio: 20.67,
+              putCountDays: 30, putTotalDays: 30, putRealDays: 0, repoDiscountRt: "0",
+              repoValidFrom: nil, repoValidTo: nil, turnoverRt: "207.04", redeemPrice: 119, redeemIncCpnFL: .n,
+              redeemPriceRatio: 130, redeemCountDays: 15, redeemTotalDays: 30, redeemRealDays: 0,
+              redeemDt: nil, redeemFlag: .x, origIssAmt: 6.7, currIssAmt: 6.7, ratingCD: .aa, issuerRatingCD: .aa,
+              guarantor: "无", sscDt: nil, escDt: nil, scNotes: nil,
+              marketCD: .szcy, forceRedeem: nil, realForceRedeemPrice: nil, convertCD: "未到转股期", repoCD: "123102", ration: 2.6154,
+              rationCD: "380490", applyCD: "370490", onlineOfflineRatio: nil, qflag: .n, qflag2: .n,
+              rationRt: "18.610", fundRt: .buy, marginFlg: .empty, ltBps: "", pb: 4.24, pbFlag: .n,
+              totalShares: 256771546.0, floatShares: 256771546.0, sqflg: .y, sprice: 31.33,
+              svolume: 125349.42,sincreaseRt: "-4.28%", qstatus: "00",
+              bondValue: .buy, bondValue2: .buy, volatilityRate: .buy,
+              lastTime: "15:14:03".toDate(withFormat: "hh:mm:ss"), convertValue: 338.70, premiumRt: "-10.39%",
+              yearLeft: 5.521, ytmRt: "-14.87%", ytmRtTax: "-15.50%", price: 303.500, fullPrice: 303.500,
+              increaseRt: "-5.45%", volume: 439276.88, convertPriceValid: .y,
+              adjScnt: .integer(0), adjCnt: 0, redeemIcon: .empty, refYieldInfo: "-", adjustTip: "", adjusted: .n, optionTip: "-", bondValue3: .buy,
+              leftPutYear: "-", shortMaturityDt: "27-03-11".toDate(withFormat:"yy-mm-dd"), dblow: 293.11, forceRedeemPrice: 12.03, putConvertPrice: 6.47,
+              convertAmtRatio: "8.5%", convertAmtRatio2: "8.3%", convertAmtRatioTips: "转债占流动市值比：8.5%\n转债占总市值比：8.3%", stockNetValue: 0.00,
+              stockCD: "300490", preBondID: "sz123102", repoValid: "有效期：-；质押代码：123102", convertCDTip: "未到转股期；2021-09-20 开始转股",
+              priceTips: "全价：303.500 最后更新：15:14:03")
     }
 }

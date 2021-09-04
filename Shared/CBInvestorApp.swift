@@ -12,7 +12,7 @@ struct CBInvestorApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
-            ContentView()
+            //ContentView()
         }
     }
 }

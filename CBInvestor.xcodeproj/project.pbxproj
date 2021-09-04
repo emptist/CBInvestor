@@ -23,6 +23,8 @@
 		48B46DA226DECAF1007DDEAC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B46DA126DECAF1007DDEAC /* HomeView.swift */; };
 		48B46DA526E36D31007DDEAC /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = 48B46DA426E36D31007DDEAC /* URLImageStore */; };
 		48B46DA726E36D31007DDEAC /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 48B46DA626E36D31007DDEAC /* URLImage */; };
+		48B46DAA26E377C5007DDEAC /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B46DA926E377C5007DDEAC /* String+.swift */; };
+		48B46DAD26E38770007DDEAC /* Percentage in Frameworks */ = {isa = PBXBuildFile; productRef = 48B46DAC26E38770007DDEAC /* Percentage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,7 @@
 		48B46D9B26DDE32C007DDEAC /* DataFromSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFromSite.swift; sourceTree = "<group>"; };
 		48B46D9F26DECABC007DDEAC /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		48B46DA126DECAF1007DDEAC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		48B46DA926E377C5007DDEAC /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,7 @@
 			files = (
 				48B46DA726E36D31007DDEAC /* URLImage in Frameworks */,
 				48B46DA526E36D31007DDEAC /* URLImageStore in Frameworks */,
+				48B46DAD26E38770007DDEAC /* Percentage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +105,7 @@
 		48A1AFD226DDC2AD00755CB0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				48B46DA826E377A7007DDEAC /* Extensions */,
 				48B46D9E26DECA92007DDEAC /* Views */,
 				48B46D9A26DDE2F3007DDEAC /* View Model */,
 				48B46D9726DDE239007DDEAC /* States */,
@@ -174,6 +179,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		48B46DA826E377A7007DDEAC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				48B46DA926E377C5007DDEAC /* String+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -193,6 +206,7 @@
 			packageProductDependencies = (
 				48B46DA426E36D31007DDEAC /* URLImageStore */,
 				48B46DA626E36D31007DDEAC /* URLImage */,
+				48B46DAC26E38770007DDEAC /* Percentage */,
 			);
 			productName = "CBInvestor (iOS)";
 			productReference = 48A1AFDA26DDC2AF00755CB0 /* CBInvestor.app */;
@@ -243,6 +257,7 @@
 			mainGroup = 48A1AFCD26DDC2AD00755CB0;
 			packageReferences = (
 				48B46DA326E36D31007DDEAC /* XCRemoteSwiftPackageReference "url-image" */,
+				48B46DAB26E38770007DDEAC /* XCRemoteSwiftPackageReference "Percentage" */,
 			);
 			productRefGroup = 48A1AFDB26DDC2AF00755CB0 /* Products */;
 			projectDirPath = "";
@@ -285,6 +300,7 @@
 				48A1AFE826DDC2AF00755CB0 /* ContentView.swift in Sources */,
 				48B46DA026DECABC007DDEAC /* RowView.swift in Sources */,
 				48A1AFE626DDC2AF00755CB0 /* CBInvestorApp.swift in Sources */,
+				48B46DAA26E377C5007DDEAC /* String+.swift in Sources */,
 				48836D8B26DDD1710099923D /* DataService.swift in Sources */,
 				48836D8826DDCE7E0099923D /* APIError.swift in Sources */,
 				48836D8526DDCB040099923D /* TableEndPoint.swift in Sources */,
@@ -465,6 +481,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZC99T738S6;
@@ -489,6 +506,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZC99T738S6;
@@ -548,6 +566,14 @@
 				minimumVersion = 3.1.0;
 			};
 		};
+		48B46DAB26E38770007DDEAC /* XCRemoteSwiftPackageReference "Percentage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:sindresorhus/Percentage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -560,6 +586,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 48B46DA326E36D31007DDEAC /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
+		};
+		48B46DAC26E38770007DDEAC /* Percentage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48B46DAB26E38770007DDEAC /* XCRemoteSwiftPackageReference "Percentage" */;
+			productName = Percentage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

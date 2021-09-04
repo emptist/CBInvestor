@@ -90,7 +90,7 @@ struct Cell: Codable {
     let optionTip: String
     let bondValue3: BondValue
     let leftPutYear: String
-    let shortMaturityDt: Date
+    let shortMaturityDt: String //Date
     let dblow: Double
     let forceRedeemPrice, putConvertPrice: Double
     let convertAmtRatio, convertAmtRatio2: String //Percentage
@@ -315,10 +315,6 @@ class JSONNull: Codable, Hashable {
 
 
 extension Cell  {
-    /*
-     {
-     }
-     */
     static var dummyData: Cell {
         .init(bondID: "123102", bondNm: "华自转债", stockID: "sz300490", stockNm: "华自科技", btype: .c,convertPrice: 9.25,
               convertPriceValidFrom: "2021-07-26".toDate(withFormat: "yyyy-mm-dd"),
@@ -345,7 +341,8 @@ extension Cell  {
               yearLeft: 5.521, ytmRt: "-14.87%", ytmRtTax: "-15.50%", price: 303.500, fullPrice: 303.500,
               increaseRt: "-5.45%", volume: 439276.88, convertPriceValid: .y,
               adjScnt: .integer(0), adjCnt: 0, redeemIcon: .empty, refYieldInfo: "-", adjustTip: "", adjusted: .n, optionTip: "-", bondValue3: .buy,
-              leftPutYear: "-", shortMaturityDt: "27-03-11".toDate(withFormat:"yy-mm-dd"), dblow: 293.11, forceRedeemPrice: 12.03, putConvertPrice: 6.47,
+              leftPutYear: "-", shortMaturityDt: "27-03-11"/*.toDate(withFormat:"yy-mm-dd")*/,
+              dblow: 293.11, forceRedeemPrice: 12.03, putConvertPrice: 6.47,
               convertAmtRatio: "8.5%", convertAmtRatio2: "8.3%", convertAmtRatioTips: "转债占流动市值比：8.5%\n转债占总市值比：8.3%", stockNetValue: 0.00,
               stockCD: "300490", preBondID: "sz123102", repoValid: "有效期：-；质押代码：123102", convertCDTip: "未到转股期；2021-09-20 开始转股",
               priceTips: "全价：303.500 最后更新：15:14:03")

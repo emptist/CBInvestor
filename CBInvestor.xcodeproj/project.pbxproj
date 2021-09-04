@@ -25,6 +25,7 @@
 		48B46DA726E36D31007DDEAC /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 48B46DA626E36D31007DDEAC /* URLImage */; };
 		48B46DAA26E377C5007DDEAC /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B46DA926E377C5007DDEAC /* String+.swift */; };
 		48B46DAD26E38770007DDEAC /* Percentage in Frameworks */ = {isa = PBXBuildFile; productRef = 48B46DAC26E38770007DDEAC /* Percentage */; };
+		48D1F6D126E3DA3700B19C51 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1F6D026E3DA3700B19C51 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		48B46D9F26DECABC007DDEAC /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		48B46DA126DECAF1007DDEAC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		48B46DA926E377C5007DDEAC /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		48D1F6D026E3DA3700B19C51 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			children = (
 				48B46D9F26DECABC007DDEAC /* RowView.swift */,
 				48B46DA126DECAF1007DDEAC /* HomeView.swift */,
+				48D1F6D026E3DA3700B19C51 /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				48A1AFE826DDC2AF00755CB0 /* ContentView.swift in Sources */,
 				48B46DA026DECABC007DDEAC /* RowView.swift in Sources */,
 				48A1AFE626DDC2AF00755CB0 /* CBInvestorApp.swift in Sources */,
+				48D1F6D126E3DA3700B19C51 /* ErrorView.swift in Sources */,
 				48B46DAA26E377C5007DDEAC /* String+.swift in Sources */,
 				48836D8B26DDD1710099923D /* DataService.swift in Sources */,
 				48836D8826DDCE7E0099923D /* APIError.swift in Sources */,

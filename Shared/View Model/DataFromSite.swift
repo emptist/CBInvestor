@@ -38,6 +38,7 @@ class DataFromSite: ObservableObject, DataViewModel {
                 }
             }, receiveValue: { response in
                 self.rows = response.rows
+                print("\(response.rows)")
             })
         self.cancellables.insert(cancellable)
     }

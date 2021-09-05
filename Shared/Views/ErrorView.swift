@@ -34,7 +34,7 @@ struct ErrorView: View {
                 .padding(.vertical,4)
             Button(action: {
                 // some action here
-                openUrl(URL(string: DataResponse.urlString)!)
+                // openUrl(URL(string: DataResponse.urlString)!)
                 handler()
             }, label: {
                 Text("Retry")

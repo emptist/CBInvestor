@@ -29,9 +29,10 @@ extension DataAPI: APIBuilder {
     }
     
     var path: String {
+        let t = Int(Date().timeIntervalSince1970)
         switch self {
         case .getItems:
-            return "/data/cbnew/cb_list/"
+            return "/data/cbnew/cb_list/?___jsl=LST___t=\(t)"
         }
     }
     

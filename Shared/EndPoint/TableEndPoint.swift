@@ -18,19 +18,23 @@ protocol APIBuilder {
 
 enum DataAPI {
     case getItems
+    case debug
 }
 
 extension DataAPI: APIBuilder {
     var baseUrl: URL {
         switch self {
-        case .getItems:
+        case .getItems, .debug:
             return URL(string: "https://www.jisilu.cn")!
         }
+        
     }
     
     var path: String {
         let t = Int(Date().timeIntervalSince1970)
         switch self {
+        case .debug:
+            return "/data/cbnew/cb_list"
         case .getItems:
             return "/data/cbnew/cb_list/?___jsl=LST___t=\(t)"
         }

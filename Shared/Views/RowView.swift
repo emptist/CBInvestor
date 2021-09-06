@@ -64,10 +64,10 @@ struct PlaceHolderView: View {
     }
 }
 
-struct RowView_Previews: PreviewProvider {
-    static var previews: some View {
-        //RowView()
-        RowView(row: Row.dummyData)
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct RowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        //RowView()
+//        RowView(row: Row.dummyData)
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

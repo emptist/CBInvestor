@@ -25,6 +25,7 @@ struct HomeView: View {
                                 load(url: DataResponse.urlString)
                             }
                     }
+                    .padding()
                     .navigationTitle(Text("Rows"))
                 }
                 

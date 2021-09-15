@@ -19,7 +19,10 @@ struct HomeView: View {
                 ErrorView(error: error, handler: dataFromSite.getDataRows)
             case .success(let rows):
                 NavigationView {
-                    List(rows) { row in
+                    // 在此处排序有没有问题？注意这是block
+                    List(rows.sorted( by: {
+                        $0.cell.dblow < $1.cell.dblow
+                    })) { row in
                         RowView(row: row)
                             .onTapGesture {
                                 load(url: DataResponse.urlString)

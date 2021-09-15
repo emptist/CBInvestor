@@ -14,15 +14,17 @@ struct RowView: View {
     var body: some View {
         
         HStack {
-            attachedImage()
-                .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                //.contrast(-0.01)
-                .cornerRadius(10)
+//            attachedImage()
+//                .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                //.contrast(-0.01)
+//                .cornerRadius(10)
             
-            VStack(alignment:.leading) {
-                Text("代码：\(row.id)")
-                Text("双低价：\(row.cell.dblow)")
-                Text("市净率：\(row.cell.pb)")
+            HStack(alignment:.center) {
+                Text("码：\(row.id)")
+                Text("实价：\(row.cell.dblow)")
+                Text("新: \(row.cell.price)")
+                Text("率：\(row.cell.pb)")
+                
             }
             
         }

@@ -42,6 +42,4 @@ class DataFromSite: ObservableObject, DataViewModel {
             })
         self.cancellables.insert(cancellable)
     }
-    
-    
 }
